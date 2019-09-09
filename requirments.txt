@@ -1,0 +1,6 @@
+numpy
+scipy
+pysal
+geopandas
+statsmodels
+matplotlib
