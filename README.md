@@ -1,1 +1,3 @@
-# mvar_spatial_association_mapping
+# Multivariate Local Spatial Association Mapping
+
+... work in progress
