@@ -3,7 +3,7 @@
 #
 # Project:  Multivariate LISA 
 #
-# Purposes: a) Multivariate Local Geary c computation (Anselin, 2019) 
+# Purposes: a) Multivariate Local Geary's c computations (Anselin, 2019) 
 #           b) Multivariate spatial clusters and outliers classification Mm_i (Oxoli, n.a.)
 #
 # target data: Vector layers (GeoDataframe)
@@ -71,7 +71,7 @@ weigth_type = 'r' # 'o' = original binary, 'r' = row-stand.
 
 permutations = 99999 # number of random permutations (this value is critical to the compuational time, chose 999 for testing)
 
-significance = 0.005 # significance level for CSR testing (used by statsmodels but not affecting the output)
+significance = 0.0001 # significance level for CSR testing (used by statsmodels but not affecting the output)
 
 # spatial weight matrix creation
 w = ps.weights.Queen.from_dataframe(df)
