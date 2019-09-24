@@ -3,10 +3,10 @@
 #
 # Project:  Multivariate LISA 
 #
-# Purposes: a) Multivariate Local Geary's c computations (Anselin, 2019) 
-#           b) Multivariate spatial clusters and outliers classification Mm_i (Oxoli, n.a.)
+# Purposes: a) Multivariate Local Geary's c (Anselin, 2019) 
+#           b) Multivariate spatial clusters and outliers classification Mm_i (Oxoli, in press)
 #
-# target data: Vector layers (GeoDataframe)
+# target data: Vector layer (GeoDataframe)
 #            
 # Author:   Daniele Oxoli (daniele.oxoli@polimi.it)
 #
@@ -44,10 +44,10 @@ out_path = "your_input_layer.shp"
 
 df = gpd.read_file(in_path)
 
-# have a look into the the analysis variable and list them
+# have a look into the the analysis variables and list them
 list(df)
 
-#list the analysis variable using the same name of the input layer attribute table
+#list the analysis variables using thier names in the input layer attribute table
 att_list = ['a', 'b','c','d']
 
 # normalize attributes for the analysis
@@ -73,7 +73,7 @@ permutations = 99999 # number of random permutations (this value is critical to 
 
 significance = 0.0001 # significance level for CSR testing (used by statsmodels but not affecting the output)
 
-# spatial weight matrix creation
+# spatial weights matrix creation
 w = ps.weights.Queen.from_dataframe(df)
 w.transform= weigth_type
 wf = w.full()[0]
@@ -189,7 +189,7 @@ df['C_sim_fdr'] = C_p_sim_fdr[1]
 
 
 '''
-# Mm_i CLASSIFICATION (on the clusters and oultiers form the local Geary's c)
+# Mm_i CLASSIFICATION (on the clusters and oultiers from the local Geary's c)
 '''
 
 class_Cki = []
@@ -199,7 +199,7 @@ Mmc_Di_ref = df[att_list_norm].median().mean()
 
 for keys in neigh_dic:
     loi = np.hstack((keys,neigh_dic[keys]))    
-    if df['C_ki'].iloc[keys] <= df['C_ki'].mean(): # in case of candidate cluster
+    if df['C_ki'].iloc[keys] <= df['C_ki'].mean(): # in case of a candidate cluster
         Mmc_i = df[att_list_norm].iloc[loi, :].median().mean()
         if Mmc_i > Mmc_Di_ref:
             class_Cki.append('hh')
