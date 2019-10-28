@@ -50,7 +50,7 @@ df = gpd.read_file(in_path)
 # have a look into the analysis variables and list them
 list(df)
 
-#list the analysis variables using thier names in the input layer attribute table
+#list the analysis variables using thier names as in the input layer attribute table
 att_list = ['a', 'b','c','d']
 
 # normalize attributes for the analysis
