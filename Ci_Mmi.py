@@ -28,13 +28,13 @@ import pysal as ps
 import numpy as np
 import scipy.stats as st
 
-# plotting libraries
-import matplotlib.pyplot as plt
-
 # simulated p-values correction 
 import statsmodels.stats.multitest as mt
 
-#runtime check
+# plotting libraries (not compulsory)
+import matplotlib.pyplot as plt
+
+#runtime check (not compulsory)
 import time 
 
 '''
