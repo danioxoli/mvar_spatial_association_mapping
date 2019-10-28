@@ -1,3 +1,3 @@
 # Multivariate Local Spatial Association Mapping
 
-... work in progress
+Scripting functionalities to produce multivariate clusters and outliers maps.
