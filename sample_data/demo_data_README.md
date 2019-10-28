@@ -8,5 +8,7 @@ Data consits of regula vector grid (100x100 cells) in Shapefile format. To each 
 | ... | ... |   ...  |   ...  |   ...   |   ...   |
 
 **id** = unique id of the geometry
-**q** = belonging quartile interval of the assigned variable observations (a,b,c,d). Quartiles are used to simulate similarity of the different vartiable observations within each cell.
-**a**
+
+**q** = belonging quartile interval of the assigned variable observations (a,b,c,d). Quartiles are used to simulate the similarity of the different variable observations within each cell.
+
+**a**, **b**,**c**, **d** = simulated variable observations (to be used for multivariate spatial clusters and outliers mapping)
