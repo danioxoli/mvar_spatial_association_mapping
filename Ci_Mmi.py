@@ -42,8 +42,8 @@ import time
 '''
 start = time.time()
 
-in_path = "your_input_layer.shp" # a shapefile of polygons with 2+ numeric attribute fileds, i.e. variables
-out_path = "your_input_layer.shp"
+in_path = "full path to your_input_layer.shp" # a shapefile of polygons with 2+ numeric attribute fileds, i.e. variables
+out_path = "full path to your_output_layer.shp"
 
 df = gpd.read_file(in_path)
 
