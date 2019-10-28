@@ -21,7 +21,10 @@
 import geopandas as gpd
 
 # stats and computing libraries
-import pysal as ps
+import pysal as ps 
+#the current PySAL version used by the script is 1.14.3. 
+#To use the newer latest version of the library please modify 
+#the API according to https://github.com/pysal/pysal/releases#release-notes-for-pysal-20
 import numpy as np
 import scipy.stats as st
 
@@ -44,7 +47,7 @@ out_path = "your_input_layer.shp"
 
 df = gpd.read_file(in_path)
 
-# have a look into the the analysis variables and list them
+# have a look into the analysis variables and list them
 list(df)
 
 #list the analysis variables using thier names in the input layer attribute table
@@ -69,7 +72,7 @@ for att_norm in att_list_norm:
 # parameters set up
 weigth_type = 'r' # 'o' = original binary, 'r' = row-stand.
 
-permutations = 99999 # number of random permutations (this value is critical to the compuational time, chose 999 for testing)
+permutations = 99999 # number of random permutations (this value is critical to the computational time, chose 999 for testing)
 
 significance = 0.0001 # significance level for CSR testing (used by statsmodels but not affecting the output)
 
@@ -189,7 +192,7 @@ df['C_sim_fdr'] = C_p_sim_fdr[1]
 
 
 '''
-# Mm_i CLASSIFICATION (on the clusters and oultiers from the local Geary's c)
+# Mm_i CLASSIFICATION (on the clusters and outliers from the local Geary's c)
 '''
 
 class_Cki = []
@@ -223,5 +226,7 @@ df.to_file(driver = 'ESRI Shapefile', filename= out_path)
 end_ci = time.time()
 print('time_ci')
 print(end_ci - start)
+
+
 
 
