@@ -1,23 +1,23 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.4.9-Madeira" maxScale="0" simplifyDrawingTol="1" simplifyDrawingHints="1" minScale="1e+08" simplifyMaxScale="1" simplifyAlgorithm="0" readOnly="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" labelsEnabled="0" simplifyLocal="1">
+<qgis labelsEnabled="0" styleCategories="AllStyleCategories" minScale="1e+08" readOnly="0" hasScaleBasedVisibilityFlag="0" simplifyAlgorithm="0" maxScale="0" simplifyDrawingHints="1" simplifyDrawingTol="1" simplifyMaxScale="1" version="3.4.5-Madeira" simplifyLocal="1">
   <flags>
     <Identifiable>1</Identifiable>
     <Removable>1</Removable>
     <Searchable>1</Searchable>
   </flags>
-  <renderer-v2 symbollevels="0" enableorderby="0" forceraster="0" type="RuleRenderer">
+  <renderer-v2 forceraster="0" type="RuleRenderer" enableorderby="0" symbollevels="0">
     <rules key="{401b84cf-8e1f-452f-a682-d88ebd9b63cf}">
-      <rule key="{7b6b135a-97dd-4d64-bc11-2bb4e8ff8a42}" label="High values cluster" filter=" &quot;class_Cki&quot;  = 'hh'  and  &quot;C_sim_fdr&quot;  &lt; 0.0001" symbol="0"/>
-      <rule key="{61c08c79-7dec-48b2-aa30-aa961d4e1183}" label="High-low outlier" filter=" &quot;class_Cki&quot;  =  'hl' and  &quot;C_sim_fdr&quot;  &lt; 0.0001" symbol="1"/>
-      <rule key="{602bf413-db97-4186-b312-c45ba53aeb7f}" label="Low-high outlier" filter=" &quot;class_Cki&quot;  =  'lh' and  &quot;C_sim_fdr&quot;  &lt; 0.0001" symbol="2"/>
-      <rule key="{c8280dca-18c8-4383-b1bf-9b7cd62aa6e9}" label="Low values cluster" filter=" &quot;class_Cki&quot;  =  'll' and  &quot;C_sim_fdr&quot;  &lt; 0.0001" symbol="3"/>
-      <rule key="{548fd712-4c3c-46c7-b64c-18b3005e479b}" label="Not significant 99.99% (CSR)" filter="&quot;C_sim_fdr&quot;  >= 0.0001" symbol="4"/>
+      <rule key="{7b6b135a-97dd-4d64-bc11-2bb4e8ff8a42}" filter=" &quot;class_Cki&quot;  = 'hh'  and  &quot;C_sim_fdr&quot;  &lt; 0.0001" label="High values cluster" symbol="0"/>
+      <rule key="{61c08c79-7dec-48b2-aa30-aa961d4e1183}" filter=" &quot;class_Cki&quot;  =  'hl' and  &quot;C_sim_fdr&quot;  &lt; 0.0001" label="High-low outlier" symbol="1"/>
+      <rule key="{602bf413-db97-4186-b312-c45ba53aeb7f}" filter=" &quot;class_Cki&quot;  =  'lh' and  &quot;C_sim_fdr&quot;  &lt; 0.0001" label="Low-high outlier" symbol="2"/>
+      <rule key="{c8280dca-18c8-4383-b1bf-9b7cd62aa6e9}" filter=" &quot;class_Cki&quot;  =  'll' and  &quot;C_sim_fdr&quot;  &lt; 0.0001" label="Low values cluster" symbol="3"/>
+      <rule key="{548fd712-4c3c-46c7-b64c-18b3005e479b}" filter="&quot;C_sim_fdr&quot;  >= 0.0001" label="Not significant 99.99% (CSR)" symbol="4"/>
     </rules>
     <symbols>
-      <symbol alpha="1" type="fill" name="0" clip_to_extent="1" force_rhr="0">
-        <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+      <symbol type="fill" force_rhr="0" name="0" clip_to_extent="1" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleFill" locked="0">
           <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-          <prop k="color" v="227,26,28,255"/>
+          <prop k="color" v="55,122,68,255"/>
           <prop k="joinstyle" v="bevel"/>
           <prop k="offset" v="0,0"/>
           <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
@@ -36,10 +36,54 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" type="fill" name="1" clip_to_extent="1" force_rhr="0">
-        <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+      <symbol type="fill" force_rhr="0" name="1" clip_to_extent="1" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleFill" locked="0">
           <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-          <prop k="color" v="251,154,153,255"/>
+          <prop k="color" v="162,202,125,255"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="offset" v="0,0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="MM"/>
+          <prop k="outline_color" v="55,122,68,255"/>
+          <prop k="outline_style" v="solid"/>
+          <prop k="outline_width" v="0.26"/>
+          <prop k="outline_width_unit" v="MM"/>
+          <prop k="style" v="solid"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option name="properties"/>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol type="fill" force_rhr="0" name="2" clip_to_extent="1" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleFill" locked="0">
+          <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="color" v="202,149,188,135"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="offset" v="0,0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="MM"/>
+          <prop k="outline_color" v="142,70,194,255"/>
+          <prop k="outline_style" v="solid"/>
+          <prop k="outline_width" v="0.26"/>
+          <prop k="outline_width_unit" v="MM"/>
+          <prop k="style" v="solid"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option name="properties"/>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol type="fill" force_rhr="0" name="3" clip_to_extent="1" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleFill" locked="0">
+          <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="color" v="142,70,194,255"/>
           <prop k="joinstyle" v="bevel"/>
           <prop k="offset" v="0,0"/>
           <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
@@ -58,59 +102,15 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" type="fill" name="2" clip_to_extent="1" force_rhr="0">
-        <layer enabled="1" locked="0" class="SimpleFill" pass="0">
-          <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-          <prop k="color" v="166,206,227,255"/>
-          <prop k="joinstyle" v="bevel"/>
-          <prop k="offset" v="0,0"/>
-          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="outline_color" v="35,35,35,255"/>
-          <prop k="outline_style" v="solid"/>
-          <prop k="outline_width" v="0.26"/>
-          <prop k="outline_width_unit" v="MM"/>
-          <prop k="style" v="solid"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option name="properties"/>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" type="fill" name="3" clip_to_extent="1" force_rhr="0">
-        <layer enabled="1" locked="0" class="SimpleFill" pass="0">
-          <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-          <prop k="color" v="31,120,180,255"/>
-          <prop k="joinstyle" v="bevel"/>
-          <prop k="offset" v="0,0"/>
-          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="outline_color" v="35,35,35,255"/>
-          <prop k="outline_style" v="solid"/>
-          <prop k="outline_width" v="0.26"/>
-          <prop k="outline_width_unit" v="MM"/>
-          <prop k="style" v="solid"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option name="properties"/>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" type="fill" name="4" clip_to_extent="1" force_rhr="0">
-        <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+      <symbol type="fill" force_rhr="0" name="4" clip_to_extent="1" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleFill" locked="0">
           <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <prop k="color" v="255,255,255,255"/>
           <prop k="joinstyle" v="bevel"/>
           <prop k="offset" v="0,0"/>
           <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <prop k="offset_unit" v="MM"/>
-          <prop k="outline_color" v="128,128,128,255"/>
+          <prop k="outline_color" v="128,128,128,209"/>
           <prop k="outline_style" v="solid"/>
           <prop k="outline_width" v="0"/>
           <prop k="outline_width_unit" v="MM"/>
@@ -127,20 +127,20 @@
     </symbols>
   </renderer-v2>
   <customproperties>
-    <property key="dualview/previewExpressions" value="id"/>
-    <property key="embeddedWidgets/count" value="0"/>
+    <property value="id" key="dualview/previewExpressions"/>
+    <property value="0" key="embeddedWidgets/count"/>
     <property key="variableNames"/>
     <property key="variableValues"/>
   </customproperties>
   <blendMode>0</blendMode>
   <featureBlendMode>0</featureBlendMode>
   <layerOpacity>1</layerOpacity>
-  <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
-    <DiagramCategory diagramOrientation="Up" penWidth="0" penColor="#000000" maxScaleDenominator="1e+08" sizeType="MM" height="15" scaleBasedVisibility="0" lineSizeType="MM" width="15" lineSizeScale="3x:0,0,0,0,0,0" rotationOffset="270" minimumSize="0" enabled="0" minScaleDenominator="0" opacity="1" backgroundColor="#ffffff" barWidth="5" backgroundAlpha="255" scaleDependency="Area" penAlpha="255" labelPlacementMethod="XHeight" sizeScale="3x:0,0,0,0,0,0">
-      <fontProperties style="" description="MS Shell Dlg 2,7.8,-1,5,50,0,0,0,0,0"/>
+  <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
+    <DiagramCategory sizeType="MM" minScaleDenominator="0" barWidth="5" rotationOffset="270" sizeScale="3x:0,0,0,0,0,0" penWidth="0" width="15" diagramOrientation="Up" penAlpha="255" backgroundColor="#ffffff" height="15" penColor="#000000" opacity="1" backgroundAlpha="255" scaleBasedVisibility="0" enabled="0" scaleDependency="Area" minimumSize="0" maxScaleDenominator="1e+08" lineSizeType="MM" labelPlacementMethod="XHeight" lineSizeScale="3x:0,0,0,0,0,0">
+      <fontProperties description=".AppleSystemUIFont,13,-1,5,50,0,0,0,0,0" style=""/>
     </DiagramCategory>
   </SingleCategoryDiagramRenderer>
-  <DiagramLayerSettings linePlacementFlags="18" placement="1" obstacle="0" dist="0" priority="0" zIndex="0" showAll="1">
+  <DiagramLayerSettings obstacle="0" dist="0" priority="0" linePlacementFlags="18" zIndex="0" placement="1" showAll="1">
     <properties>
       <Option type="Map">
         <Option value="" type="QString" name="name"/>
@@ -304,90 +304,90 @@
   <excludeAttributesWMS/>
   <excludeAttributesWFS/>
   <defaults>
-    <default expression="" applyOnUpdate="0" field="id"/>
-    <default expression="" applyOnUpdate="0" field="q"/>
-    <default expression="" applyOnUpdate="0" field="a"/>
-    <default expression="" applyOnUpdate="0" field="c"/>
-    <default expression="" applyOnUpdate="0" field="b"/>
-    <default expression="" applyOnUpdate="0" field="d"/>
-    <default expression="" applyOnUpdate="0" field="n_a"/>
-    <default expression="" applyOnUpdate="0" field="n_b"/>
-    <default expression="" applyOnUpdate="0" field="n_c"/>
-    <default expression="" applyOnUpdate="0" field="n_d"/>
-    <default expression="" applyOnUpdate="0" field="C_ki"/>
-    <default expression="" applyOnUpdate="0" field="C_p_norm"/>
-    <default expression="" applyOnUpdate="0" field="C_norm_fdr"/>
-    <default expression="" applyOnUpdate="0" field="C_z_norm"/>
-    <default expression="" applyOnUpdate="0" field="C_z_sim"/>
-    <default expression="" applyOnUpdate="0" field="C_p_sim"/>
-    <default expression="" applyOnUpdate="0" field="C_sim_fdr"/>
-    <default expression="" applyOnUpdate="0" field="class_Cki"/>
+    <default expression="" field="id" applyOnUpdate="0"/>
+    <default expression="" field="q" applyOnUpdate="0"/>
+    <default expression="" field="a" applyOnUpdate="0"/>
+    <default expression="" field="c" applyOnUpdate="0"/>
+    <default expression="" field="b" applyOnUpdate="0"/>
+    <default expression="" field="d" applyOnUpdate="0"/>
+    <default expression="" field="n_a" applyOnUpdate="0"/>
+    <default expression="" field="n_b" applyOnUpdate="0"/>
+    <default expression="" field="n_c" applyOnUpdate="0"/>
+    <default expression="" field="n_d" applyOnUpdate="0"/>
+    <default expression="" field="C_ki" applyOnUpdate="0"/>
+    <default expression="" field="C_p_norm" applyOnUpdate="0"/>
+    <default expression="" field="C_norm_fdr" applyOnUpdate="0"/>
+    <default expression="" field="C_z_norm" applyOnUpdate="0"/>
+    <default expression="" field="C_z_sim" applyOnUpdate="0"/>
+    <default expression="" field="C_p_sim" applyOnUpdate="0"/>
+    <default expression="" field="C_sim_fdr" applyOnUpdate="0"/>
+    <default expression="" field="class_Cki" applyOnUpdate="0"/>
   </defaults>
   <constraints>
-    <constraint unique_strength="0" constraints="0" field="id" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="q" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="a" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="c" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="b" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="d" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="n_a" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="n_b" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="n_c" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="n_d" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="C_ki" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="C_p_norm" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="C_norm_fdr" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="C_z_norm" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="C_z_sim" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="C_p_sim" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="C_sim_fdr" notnull_strength="0" exp_strength="0"/>
-    <constraint unique_strength="0" constraints="0" field="class_Cki" notnull_strength="0" exp_strength="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="id" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="q" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="a" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="c" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="b" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="d" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="n_a" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="n_b" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="n_c" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="n_d" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="C_ki" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="C_p_norm" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="C_norm_fdr" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="C_z_norm" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="C_z_sim" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="C_p_sim" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="C_sim_fdr" exp_strength="0" constraints="0"/>
+    <constraint notnull_strength="0" unique_strength="0" field="class_Cki" exp_strength="0" constraints="0"/>
   </constraints>
   <constraintExpressions>
-    <constraint field="id" desc="" exp=""/>
-    <constraint field="q" desc="" exp=""/>
-    <constraint field="a" desc="" exp=""/>
-    <constraint field="c" desc="" exp=""/>
-    <constraint field="b" desc="" exp=""/>
-    <constraint field="d" desc="" exp=""/>
-    <constraint field="n_a" desc="" exp=""/>
-    <constraint field="n_b" desc="" exp=""/>
-    <constraint field="n_c" desc="" exp=""/>
-    <constraint field="n_d" desc="" exp=""/>
-    <constraint field="C_ki" desc="" exp=""/>
-    <constraint field="C_p_norm" desc="" exp=""/>
-    <constraint field="C_norm_fdr" desc="" exp=""/>
-    <constraint field="C_z_norm" desc="" exp=""/>
-    <constraint field="C_z_sim" desc="" exp=""/>
-    <constraint field="C_p_sim" desc="" exp=""/>
-    <constraint field="C_sim_fdr" desc="" exp=""/>
-    <constraint field="class_Cki" desc="" exp=""/>
+    <constraint field="id" exp="" desc=""/>
+    <constraint field="q" exp="" desc=""/>
+    <constraint field="a" exp="" desc=""/>
+    <constraint field="c" exp="" desc=""/>
+    <constraint field="b" exp="" desc=""/>
+    <constraint field="d" exp="" desc=""/>
+    <constraint field="n_a" exp="" desc=""/>
+    <constraint field="n_b" exp="" desc=""/>
+    <constraint field="n_c" exp="" desc=""/>
+    <constraint field="n_d" exp="" desc=""/>
+    <constraint field="C_ki" exp="" desc=""/>
+    <constraint field="C_p_norm" exp="" desc=""/>
+    <constraint field="C_norm_fdr" exp="" desc=""/>
+    <constraint field="C_z_norm" exp="" desc=""/>
+    <constraint field="C_z_sim" exp="" desc=""/>
+    <constraint field="C_p_sim" exp="" desc=""/>
+    <constraint field="C_sim_fdr" exp="" desc=""/>
+    <constraint field="class_Cki" exp="" desc=""/>
   </constraintExpressions>
   <expressionfields/>
   <attributeactions>
-    <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
+    <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
   </attributeactions>
-  <attributetableconfig actionWidgetStyle="dropDown" sortOrder="0" sortExpression="&quot;C_sim_fdr&quot;">
+  <attributetableconfig sortExpression="&quot;C_sim_fdr&quot;" actionWidgetStyle="dropDown" sortOrder="0">
     <columns>
-      <column type="field" width="-1" name="id" hidden="0"/>
-      <column type="field" width="-1" name="q" hidden="0"/>
-      <column type="field" width="-1" name="a" hidden="0"/>
-      <column type="field" width="-1" name="b" hidden="0"/>
-      <column type="field" width="-1" name="c" hidden="0"/>
-      <column type="field" width="-1" name="d" hidden="0"/>
-      <column type="field" width="-1" name="n_a" hidden="0"/>
-      <column type="field" width="-1" name="n_b" hidden="0"/>
-      <column type="field" width="-1" name="n_c" hidden="0"/>
-      <column type="field" width="-1" name="n_d" hidden="0"/>
-      <column type="field" width="-1" name="C_ki" hidden="0"/>
-      <column type="field" width="-1" name="class_Cki" hidden="0"/>
-      <column type="field" width="-1" name="C_p_norm" hidden="0"/>
-      <column type="field" width="-1" name="C_norm_fdr" hidden="0"/>
-      <column type="field" width="-1" name="C_z_norm" hidden="0"/>
-      <column type="field" width="-1" name="C_p_sim" hidden="0"/>
-      <column type="field" width="-1" name="C_sim_fdr" hidden="0"/>
-      <column type="field" width="-1" name="C_z_sim" hidden="0"/>
-      <column type="actions" width="-1" hidden="1"/>
+      <column hidden="0" type="field" name="id" width="-1"/>
+      <column hidden="0" type="field" name="q" width="-1"/>
+      <column hidden="0" type="field" name="a" width="-1"/>
+      <column hidden="0" type="field" name="b" width="-1"/>
+      <column hidden="0" type="field" name="c" width="-1"/>
+      <column hidden="0" type="field" name="d" width="-1"/>
+      <column hidden="0" type="field" name="n_a" width="-1"/>
+      <column hidden="0" type="field" name="n_b" width="-1"/>
+      <column hidden="0" type="field" name="n_c" width="-1"/>
+      <column hidden="0" type="field" name="n_d" width="-1"/>
+      <column hidden="0" type="field" name="C_ki" width="-1"/>
+      <column hidden="0" type="field" name="class_Cki" width="-1"/>
+      <column hidden="0" type="field" name="C_p_norm" width="-1"/>
+      <column hidden="0" type="field" name="C_norm_fdr" width="-1"/>
+      <column hidden="0" type="field" name="C_z_norm" width="-1"/>
+      <column hidden="0" type="field" name="C_p_sim" width="-1"/>
+      <column hidden="0" type="field" name="C_sim_fdr" width="-1"/>
+      <column hidden="0" type="field" name="C_z_sim" width="-1"/>
+      <column hidden="1" type="actions" width="-1"/>
     </columns>
   </attributetableconfig>
   <conditionalstyles>
