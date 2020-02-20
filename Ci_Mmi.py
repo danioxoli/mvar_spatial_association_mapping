@@ -32,7 +32,7 @@ import scipy.stats as st
 import statsmodels.stats.multitest as mt
 
 # plotting libraries (not compulsory)
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 #runtime check (not compulsory)
 import time 
@@ -60,7 +60,7 @@ for att in att_list:
     att_list_norm.append('n_'+att)
 
 
-# simple quantile plot of the selected attributes
+'''# simple quantile plot of the selected attributes (uncomment also line 35 to enable plotting)
 i = 0
 
 fig, axes = plt.subplots(nrows=1, ncols=len(att_list_norm), sharey=True, figsize=(7*len(att_list_norm),7))
@@ -68,7 +68,7 @@ for att_norm in att_list_norm:
     df.plot(column=att_norm, cmap='OrRd', scheme='quantiles', k=4, edgecolor=None, legend= True , ax=axes[i])
     axes[i].set_title(att_list[i], fontstyle='italic')
     i += 1
-
+'''
 # parameters set up
 weigth_type = 'r' # 'o' = original binary, 'r' = row-stand.
 
@@ -77,10 +77,15 @@ permutations = 99999 # number of random permutations (this value is critical to 
 significance = 0.0001 # significance level for CSR testing (used by statsmodels but not affecting the output)
 
 # spatial weights matrix creation
-w = ps.weights.Queen.from_dataframe(df)
+w = ps.weights.Queen.from_dataframe(df) # edge-corner contiguity
+
+'''# alternative spatial weights - use only one
+w = ps.weights.Rook.from_dataframe(df) # corner contiguity
+w = ps.Kernel.from_dataframe(df, bandwidth = 1, function = 'gaussian') # Kernel weights
+'''
+
 w.transform= weigth_type
 wf = w.full()[0]
-
 
 # fit the normalized attribute arrays into a matrix
 att_arrs_norm = [df[att_norm] for att_norm in att_list_norm]
