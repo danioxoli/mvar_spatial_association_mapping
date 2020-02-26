@@ -93,7 +93,7 @@ att_mtx_norm = np.array(att_arrs_norm).transpose()
 n_of_att = np.shape(att_mtx_norm)[1]
 
 '''
-# MULTIVARIATE LOCAL GEARY'c COMPUTATION 
+# MULTIVARIATE LOCAL GEARY'S c COMPUTATION 
 '''
 
 neigh = w.neighbors
@@ -123,7 +123,7 @@ C_ki = np.array(C_ki_list) # observed statistics vector
 # add results to the dataframe
 df['C_ki'] = C_ki   
 
-# LOCAL GEARY'C INFERENCE 
+# LOCAL GEARY'S c INFERENCE 
 
 # normality assumption
 C_ki_z_norm = (C_ki - np.mean(C_ki))/np.std(C_ki) # standard variates from standard normal approximation
