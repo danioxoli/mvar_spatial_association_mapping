@@ -1,6 +1,7 @@
+Python 3
 numpy
 scipy
 pysal
 geopandas
 statsmodels
-matplotlib
+matplotlib (not compulsory)
