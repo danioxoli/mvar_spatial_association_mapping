@@ -1,7 +1,7 @@
 Python 3
 numpy
 scipy
-pysal
+pysal==1.14
 geopandas
 statsmodels
 matplotlib (not compulsory)
