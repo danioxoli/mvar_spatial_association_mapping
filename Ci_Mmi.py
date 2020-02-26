@@ -72,7 +72,7 @@ for att_norm in att_list_norm:
 # parameters set up
 weigth_type = 'r' # 'o' = original binary, 'r' = row-stand.
 
-permutations = 99999 # number of random permutations (this value is critical to the computational time, use 999 for testing)
+permutations = 99999 # number of random permutations (this value is critical to the computational time, use e.g. 9999 for testing)
 
 significance = 0.0001 # significance level for CSR testing (used by statsmodels but not affecting the output)
 
