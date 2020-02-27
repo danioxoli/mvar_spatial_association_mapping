@@ -4,7 +4,7 @@
 # Project:  Multivariate LISA 
 #
 # Purposes: a) Multivariate Local Geary's c (Anselin, 2019) 
-#           b) Multivariate spatial clusters and outliers classification Mm_i (Oxoli, in press)
+#           b) Multivariate spatial clusters and outliers classification Mm_i (Oxoli, 2020)
 #
 # target data: Vector layer (GeoDataframe)
 #            
