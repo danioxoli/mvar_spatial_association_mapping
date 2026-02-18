@@ -376,3 +376,142 @@ df.to_file(driver='ESRI Shapefile', filename=out_path)
 end_ci = time.time()
 print("time_ci")
 print(end_ci - start)
+
+# ==========================================
+#     LOCAL–GLOBAL CONSISTENCY CHECKS
+#     Use this block AFTER computing any C_ki_* column.
+#
+#     Goal: verify the Chen-style canonical identity:
+#         sum_i C_i  ==  C_global
+#     where
+#         C_global = (1/(2k)) * sum_{i,j} w_ij * d(i,j)^2
+#
+#     Notes:
+#     - This identity is guaranteed when:
+#         * W is GLOBAL (sum-)normalized (sum_{i,j} w_ij = 1), and
+#         * the local statistic uses the same scaling (typically 1/(2k))
+#     - It generally FAILS for row-standardized weights (row sums = 1).
+# ==========================================
+
+def global_geary_multivariate(att_mtx, W, neigh_dict, distance="euclidean", inv_cov=None, scale_canonical=True):
+    """
+    Computes the corresponding GLOBAL multivariate Geary:
+        C_global = sum_i C_i
+    computed explicitly as:
+        C_global = (1/(2k)) * sum_{i,j} w_ij * d(i,j)^2
+    If scale_canonical=False:
+        C_global = sum_{i,j} w_ij * d(i,j)^2
+    """
+    n, k = att_mtx.shape
+    total = 0.0
+
+    for i in range(n):
+        js = neigh_dict[i]
+        if len(js) == 0:
+            continue
+
+        focal = att_mtx[i, :]
+        neigh_mtx = att_mtx[js, :]
+
+        if distance == "euclidean":
+            d2 = euclidean_d2(focal, neigh_mtx)
+        elif distance == "mahalanobis":
+            if inv_cov is None:
+                raise ValueError("inv_cov is required for Mahalanobis distance.")
+            d2 = mahalanobis_d2(focal, neigh_mtx, inv_cov)
+        else:
+            raise ValueError("distance must be 'euclidean' or 'mahalanobis'")
+
+        wij = W[i, js]
+        total += np.sum(wij * d2)
+
+    if scale_canonical:
+        total *= (1.0 / (2.0 * k))
+
+    return total
+
+
+def local_global_consistency_report(df, C_col, att_mtx, W, neigh_dict,
+                                    distance="euclidean", inv_cov=None, scale_canonical=True,
+                                    print_first_n=10):
+    """
+    Prints and returns a small report of local-global consistency.
+    Compares:
+        sum_i C_i (from df[C_col])
+    with:
+        C_global (explicit computation)
+    """
+    # Sum of locals (ignore NaNs if islands exist)
+    sum_locals = np.nansum(df[C_col].to_numpy())
+
+    # Global computed from weights + distances
+    C_global = global_geary_multivariate(
+        att_mtx=att_mtx, W=W, neigh_dict=neigh_dict,
+        distance=distance, inv_cov=inv_cov, scale_canonical=scale_canonical
+    )
+
+    abs_diff = float(np.abs(sum_locals - C_global))
+    rel_diff = float(abs_diff / (np.abs(C_global) + 1e-15))
+
+    print("----- Local–Global Consistency Check -----")
+    print(f"Statistic column: {C_col}")
+    print(f"Distance: {distance}")
+    print(f"Canonical scaling (1/(2k)): {scale_canonical}")
+    print(f"Sum of locals   Σ_i C_i     = {sum_locals:.12g}")
+    print(f"Global computed C_global    = {C_global:.12g}")
+    print(f"Absolute diff              = {abs_diff:.12g}")
+    print(f"Relative diff              = {rel_diff:.12g}")
+
+    # Basic weight diagnostics
+    print("\n----- Weight diagnostics -----")
+    print(f"Sum of all weights Σ_ij w_ij = {W.sum():.12g}")
+    row_sums = W.sum(axis=1)
+    print(f"Row sums (min, mean, max)    = ({row_sums.min():.12g}, {row_sums.mean():.12g}, {row_sums.max():.12g})")
+
+    # Show a few example locals vs their contribution
+    print("\n----- First few local values -----")
+    cvals = df[C_col].to_numpy()
+    idxs = np.where(~np.isnan(cvals))[0][:print_first_n]
+    for i in idxs:
+        print(f"i={i}, C_i={cvals[i]:.12g}, deg={len(neigh_dict[i])}")
+
+    return {
+        "C_col": C_col,
+        "distance": distance,
+        "scale_canonical": scale_canonical,
+        "sum_locals": sum_locals,
+        "C_global": C_global,
+        "abs_diff": abs_diff,
+        "rel_diff": rel_diff,
+        "sum_weights": float(W.sum()),
+        "row_sum_min": float(row_sums.min()),
+        "row_sum_mean": float(row_sums.mean()),
+        "row_sum_max": float(row_sums.max()),
+    }
+
+# -----------------------------
+# HOW TO USE THIS BLOCK
+# -----------------------------
+# After you select and run ONE of blocks (A), (B), or (C), call this with the matching settings.
+#
+# Example 1: Legacy row-standardized Euclidean (A) -> expect mismatch
+# report_A = local_global_consistency_report(
+#     df=df, C_col="C_ki_A",
+#     att_mtx=att_mtx_norm, W=W_A, neigh_dict=neigh_dic,
+#     distance="euclidean", inv_cov=None, scale_canonical=False
+# )
+#
+# Example 2: Chen-canonical Euclidean (B) -> expect near-zero diff
+# report_B = local_global_consistency_report(
+#     df=df, C_col="C_ki_B",
+#     att_mtx=att_mtx_norm, W=W_B, neigh_dict=neigh_dic,
+#     distance="euclidean", inv_cov=None, scale_canonical=True
+# )
+#
+# Example 3: Chen-canonical Mahalanobis (C) -> expect near-zero diff
+# report_C = local_global_consistency_report(
+#     df=df, C_col="C_ki_C",
+#     att_mtx=att_mtx_norm, W=W_C, neigh_dict=neigh_dic,
+#     distance="mahalanobis", inv_cov=inv_Sigma_z, scale_canonical=True
+# )
+
